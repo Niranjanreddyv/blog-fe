@@ -23,17 +23,17 @@ function App() {
               <Route path='/login' element ={<Auth key='login' />} />
             </Route>
 
-            {/* <Route path='/settings' element ={<AuthRoute />} >
-              <Route path='/settings' element ={<h1>Settings</h1>} />
-            </Route> */}
+            <Route path='/settings' element={<AuthRoute />} >
+              <Route path='/settings' element={<h1>Settings</h1>} />
+            </Route>
 
-            <Route path='/settings' element ={<h1>Settings</h1>} />
+            {/* <Route path='/settings' element ={<h1>Settings</h1>} /> */}
             
-            {/* <Route path='/editor' element ={<AuthRoute />} >
+            <Route path='/editor' element ={<AuthRoute />} >
               <Route path='/editor' element ={<h1>Editor</h1>} />
-            </Route> */}
+            </Route>
            
-            <Route path='/editor' element ={<h1>Editor</h1>} />
+            {/* <Route path='/editor' element ={<h1>Editor</h1>} /> */}
 
             <Route path='/editor/:slug' element ={<h1>Editor</h1>} />
             <Route path='/article/:slug' element ={<h1>Article</h1>} />
