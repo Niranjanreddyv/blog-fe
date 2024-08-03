@@ -16,7 +16,7 @@ function Auth() {
         try {
             // api request to login or register
 
-            const {data} = await axios.post(`http://localhost:3001/api/users${isRegister ? '': '/login'}`,{user:values})
+            const {data} = await axios.post(`http://localhost:3001/api/users${isRegister ? '': '/login'}`,{user:values});
 
 
             // navigate the user back to home page
@@ -24,7 +24,7 @@ function Auth() {
             navigate('/');
 
         } catch (error) {
-            console.error("Error while onSubmit",error);
+            console.error("Error while onSubmit: ",error);
 
             const {status, data} = error.response;
 
@@ -34,7 +34,9 @@ function Auth() {
             
         }
     }
+
     const loginInitialValues = {email:'',password: ''};
+
   return (
     <div className='auth-page'>
         
@@ -98,7 +100,7 @@ function Auth() {
         </div>
 
     </div>
-  )
+  );
 }
 
-export default Auth
+export default Auth;

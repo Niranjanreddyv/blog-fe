@@ -1,6 +1,6 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import { AuthRoute, GuestRoute } from './components'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { AuthRoute, GuestRoute, Navbar } from './components'
 import {Auth, Home } from './pages'
 
 
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div>
         <header>
-          {/* Navbar */}
+          <Navbar />
         </header>
         <main>
           <Routes>
@@ -23,14 +23,18 @@ function App() {
               <Route path='/login' element ={<Auth key='login' />} />
             </Route>
 
-            <Route path='/settings' element ={<AuthRoute />} >
+            {/* <Route path='/settings' element ={<AuthRoute />} >
               <Route path='/settings' element ={<h1>Settings</h1>} />
-            </Route>
+            </Route> */}
+
+            <Route path='/settings' element ={<h1>Settings</h1>} />
             
-            <Route path='/editor' element ={<AuthRoute />} >
+            {/* <Route path='/editor' element ={<AuthRoute />} >
               <Route path='/editor' element ={<h1>Editor</h1>} />
-            </Route>
+            </Route> */}
            
+            <Route path='/editor' element ={<h1>Editor</h1>} />
+
             <Route path='/editor/:slug' element ={<h1>Editor</h1>} />
             <Route path='/article/:slug' element ={<h1>Article</h1>} />
             <Route path='/profile/:username' element ={<h1>Profile</h1>} />
@@ -43,7 +47,7 @@ function App() {
         </main>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App
