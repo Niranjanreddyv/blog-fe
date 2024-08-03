@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AuthRoute, GuestRoute, Navbar } from './components'
-import {Auth, Home } from './pages'
+import {Auth, Home, Settings } from './pages'
 
 
 function App() {
@@ -24,17 +24,13 @@ function App() {
             </Route>
 
             <Route path='/settings' element={<AuthRoute />} >
-              <Route path='/settings' element={<h1>Settings</h1>} />
+              <Route path='/settings' element={<Settings />} />
             </Route>
-
-            {/* <Route path='/settings' element ={<h1>Settings</h1>} /> */}
             
             <Route path='/editor' element ={<AuthRoute />} >
               <Route path='/editor' element ={<h1>Editor</h1>} />
             </Route>
            
-            {/* <Route path='/editor' element ={<h1>Editor</h1>} /> */}
-
             <Route path='/editor/:slug' element ={<h1>Editor</h1>} />
             <Route path='/article/:slug' element ={<h1>Article</h1>} />
             <Route path='/profile/:username' element ={<h1>Profile</h1>} />
