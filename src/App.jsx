@@ -1,10 +1,25 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AuthRoute, GuestRoute, Navbar } from './components'
-import {Auth, Home, Settings } from './pages'
-
+import {Auth, Editor, Home, Settings } from './pages'
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  // when we refresh page code will break then commit it and login comment remove
+  useEffect(() => {
+
+    const jwt = window.localStorage.getItem('jwtToken');
+
+    if(!jwt) return {};
+
+    const parsedJwt = JSON.parse(atob(jwt));
+    console.log('parsedJwt',{parsedJwt})
+    axios.defaults.headers.Authorization = `Token ${parsedJwt.token}`;
+
+  }, []);
+
   return(
     <Router>
       <div>
@@ -28,7 +43,7 @@ function App() {
             </Route>
             
             <Route path='/editor' element ={<AuthRoute />} >
-              <Route path='/editor' element ={<h1>Editor</h1>} />
+              <Route path='/editor' element ={<Editor />} />
             </Route>
            
             <Route path='/editor/:slug' element ={<h1>Editor</h1>} />
